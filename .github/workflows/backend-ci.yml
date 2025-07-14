@@ -3,10 +3,10 @@ name: Backend CI
 on:
   push:
     paths:
-      - 'server/'
+      - 'server/**'
   pull_request:
     paths:
-      - 'server/'
+      - 'server/**'
 
 jobs:
   build-and-test:
