@@ -8,7 +8,7 @@ const FeaturedPost = ()=>{
     const featuredPost = posts[index];
     if(loading) return <h1>loading...</h1>
     if(error) return <h1>error</h1>
-    return(
+    if(featuredPost) return(
         <FeaturedCard
             image={featuredPost.imgUrl}
             tags={featuredPost.tags}
