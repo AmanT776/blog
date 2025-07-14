@@ -2,8 +2,8 @@ import PostCard from "./PostCard"
 import usePosts from "@/hooks/usePosts";
 const PostList = ()=>{
     const {posts} = usePosts();
-    if(!posts) return <h1>no posts</h1>
-    posts.length > 0 ? posts.map((post,index)=>{
+    if(posts.length === 0) return <h1>no posts</h1>
+    return(posts.map((post,index)=>{
             return(
                 <PostCard
                 key={index}
@@ -16,7 +16,7 @@ const PostList = ()=>{
                 date={post.created_at.split('T')[0]}
                 />
             )
-        }) : <h1>no post to display</h1>
+        })) 
     
 }
 export default PostList;

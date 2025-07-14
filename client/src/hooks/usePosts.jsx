@@ -5,6 +5,7 @@ const usePosts = () => {
   const [posts, setPosts] = useState([]);   
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     let isMounted = true;
