@@ -2,6 +2,7 @@ import PostCard from "./PostCard"
 import usePosts from "@/hooks/usePosts";
 const PostList = ()=>{
     const {posts} = usePosts();
+    if(!posts) return <h1>no posts</h1>
     return(
         posts.length > 0 ? posts.map((post,index)=>{
             return(
