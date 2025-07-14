@@ -22,12 +22,11 @@ const CreatePost = ()=>{
         e.preventDefault();
         try{
             const res = await API.post('/posts/addPost',JSON.stringify(post));
-            toast.success("post created")
+            toast.success("post created");
         }catch(err){
             toast.error(err.response.data);
-        }
-    }
-    
+        };
+    };
     return(
         <form onSubmit={handlePost} className="flex  flex-col gap-3 p-10 md:px-20 md:py-29">
             <h1 className="text-2xl font-bold">Create New Post</h1>

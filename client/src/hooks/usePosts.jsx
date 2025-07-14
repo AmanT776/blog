@@ -26,7 +26,6 @@ const usePosts = () => {
         }
       }
     };
-
     fetchPosts();
     return () => {
       isMounted = false; 
