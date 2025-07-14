@@ -10,7 +10,7 @@ const PostCard = ({index,image,tags,title,excerpt,avatar,author,date,myPost})=>{
         </figure>
          <div className={myPost ? " flex flex-col items-start  translate-x-2" : ""}>
             <div className={myPost? "flex gap-2":'flex  gap-2 mb-2'}>
-                    {tags.map((tag,index)=>{
+                    {Array.isArray(tags) && tags.map((tag,index)=>{
                 return(
                     <div key={index} className={myPost ? "": "flex justify-center translate-y-3"}>
                         <h3 className={myPost ? "p-1 rounded-sm bg-indigo-50 text-indigo-900": "bg-indigo-50 text-indigo-900 px-2 text-sm  rounded-md text-xs"}>{tag}</h3>
@@ -22,9 +22,9 @@ const PostCard = ({index,image,tags,title,excerpt,avatar,author,date,myPost})=>{
             <h2 className={myPost ? "text-xl font-bold": "card-title text-xl"}>{title}</h2>
             <p className={myPost ? "": "text-lg"}>{excerpt}</p>
             <div className={"card-actions w-full flex items-center justify-start gap-3"}>
-                    {/* <div>
+                    <div>
                         <img src={avatar} className={"w-[40px] h-[40px] rounded-full" }/>
-                    </div> */}
+                    </div>
                     <div className={myPost ? "": "flex flex-col"}>
                         <p>{author}</p>
                         <p>{date}</p>

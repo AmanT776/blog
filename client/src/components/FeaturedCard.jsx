@@ -11,7 +11,7 @@ const FeaturedCard = ({id,image,tags,title,excerpt,avatar,author,date})=>{
             </figure>
             <div className="card-body md:translate-x-1 pl-2 w-full">
                 <div className='flex gap-1 mb-2  w-full'>
-                    {tags.map((tag,index)=>{
+                    {Array.isArray(tags) && tags.map((tag,index)=>{
                 return(
                     <div key={index} className="flex justify-center ">
                         <h3 className="bg-indigo-50 text-indigo-900 px-2  rounded-md text-xs ">{tag}</h3>
