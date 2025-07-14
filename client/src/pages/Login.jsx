@@ -6,8 +6,7 @@ import {
     ,CardTitle
     ,CardDescription
     ,CardAction
-    ,CardContent
-    ,CardFooter, } from "@/components/ui/card";
+    ,CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import API from "@/services/api";
@@ -28,7 +27,7 @@ const Login = ()=>{
 const handleLogin = async(e)=>{
     e.preventDefault();
     try{
-        const res = await API.post('/auth/login',JSON.stringify(formValues));
+        const res = await API.post('/auth/login',formValues);
         localStorage.setItem("token",res.data.token);
         navigate('/dashboard');
         console.log(res)

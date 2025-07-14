@@ -8,19 +8,10 @@ import {
     ,CardContent
     ,CardFooter, } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useState } from "react";
 import {Link,useNavigate} from "react-router-dom";
 import API from "@/services/api";
-import axios from "axios";
+
 
 const Signup = ()=>{
     const [formValues,setFormValues] = useState({name: "",email: "",password: ""});
@@ -39,7 +30,7 @@ const Signup = ()=>{
         e.preventDefault();
         setLoading(true);
         try{
-            const res = await API.post("/auth/signup",JSON.stringify(formValues));
+            const res = await API.post("/auth/signup",formValues);
             if(res){
                 navigate('/login')
             } 
