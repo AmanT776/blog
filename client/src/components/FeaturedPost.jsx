@@ -14,7 +14,7 @@ const FeaturedPost = ()=>{
             tags={featuredPost.tags}
             title={featuredPost.title}
             excerpt={featuredPost.excerpt}
-            avatar={"test"}
+            // avatar={"test"}
             author={"test"}
             date={featuredPost.date}
         />
