@@ -4,7 +4,6 @@ import {Button} from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "sonner"
 import API from '@/services/api';
-import { useEffect } from "react";
 const CreatePost = ()=>{
     const [post,setPost] = useState({title: "",excerpt: "",tags: [],imgUrl: "",content: ""});
     const handleChange = (e)=>{
@@ -22,7 +21,7 @@ const CreatePost = ()=>{
     const handlePost = async(e) =>{
         e.preventDefault();
         try{
-            const res = await API.post('/posts/',JSON.stringify(post));
+            const res = await API.post('/posts/addPost',JSON.stringify(post));
             toast.success("post created")
         }catch(err){
             toast.error(err.response.data);

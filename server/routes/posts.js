@@ -5,7 +5,7 @@ const {protect,authorize} = require('../middlewares/auth')
 
 router.get('/',protect,getAllPosts);
 router.get('/:id',protect,getPost);
-router.post('/',protect,authorize(["author"]),createPost);
+router.post('/addPost',protect,createPost);
 router.put('/:id',protect,authorize(["author"]),updatePost);
 router.delete('/:id',protect,authorize(["admin","author"]),deletePost);
 
