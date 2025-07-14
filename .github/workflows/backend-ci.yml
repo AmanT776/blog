@@ -9,18 +9,32 @@ on:
       - 'server/**'
 
 jobs:
-  build-and-test:
+  ci:
+    name: Run Backend CI
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: server
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
       - name: Install dependencies
         run: npm install
-      - name: Run tests
+
+      - name: Run Linter (Optional)
+        run: npm run lint
+        continue-on-error: true 
+
+      - name: Run Tests
         run: npm test
+
+      - name: Build Project (Optional)
+        run: npm run build
