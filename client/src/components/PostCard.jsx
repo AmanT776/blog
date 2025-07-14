@@ -22,9 +22,9 @@ const PostCard = ({index,image,tags,title,excerpt,avatar,author,date,myPost})=>{
             <h2 className={myPost ? "text-xl font-bold": "card-title text-xl"}>{title}</h2>
             <p className={myPost ? "": "text-lg"}>{excerpt}</p>
             <div className={"card-actions w-full flex items-center justify-start gap-3"}>
-                    <div>
+                    {/* <div>
                         <img src={avatar} className={"w-[40px] h-[40px] rounded-full" }/>
-                    </div>
+                    </div> */}
                     <div className={myPost ? "": "flex flex-col"}>
                         <p>{author}</p>
                         <p>{date}</p>

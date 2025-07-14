@@ -3,9 +3,9 @@ import FeaturedCard from "./FeaturedCard";
 
 const FeaturedPost = ()=>{
     const {posts,error,loading} = usePosts();
-    if(!posts) return <h1>no posts</h1>
     const index = posts.length - 1;
     const featuredPost = posts[index];
+    if(!posts) return <h1>no posts</h1>
     if(loading) return <h1>loading...</h1>
     if(error) return <h1>error</h1>
     if(featuredPost) return(
