@@ -33,6 +33,3 @@ jobs:
         run: echo "No lint script implemented yet. Add ESLint for better code quality."
       - name: Run tests
         run: echo "No tests implemented yet. Add tests for better CI."
-
-      - name: Build Project (Optional)
-        run: npm run build
