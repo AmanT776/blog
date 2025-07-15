@@ -22,7 +22,6 @@ const Login = ()=>{
                 [name]: value
             })
         })
-        
     }
 const handleLogin = async(e)=>{
     e.preventDefault();
