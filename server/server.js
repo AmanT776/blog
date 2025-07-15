@@ -13,6 +13,10 @@ app.use('/api/posts',require("./routes/posts"));
 app.use('/api/categories',require("./routes/category"));
 
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 app.use(errorHandler);
 
 app.listen(PORT,()=>{
