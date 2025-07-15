@@ -4,5 +4,4 @@ const {getCategories,createCategory} = require("../controllers/categoriesControl
 
 router.get('/',getCategories);
 router.post('/',createCategory);
-
 module.exports = router;
