@@ -1,15 +1,11 @@
-import usePosts from "@/hooks/usePosts";
 import FeaturedCard from "./FeaturedCard";
-
+import { usePost } from "@/context/postContext";
+import { useFeaturedPost } from "@/hooks/useFeaturedPost";
 const FeaturedPost = ()=>{
-    const {posts,error,loading} = usePosts();
-    if(posts.length===0) return <h1>no posts</h1>;
-    const index = posts.length - 1;
-    const featuredPost = posts[index];
-    if(loading) return <h1>loading...</h1>
-    if(error) return <h1>error</h1>
-    return(
-        <FeaturedCard
+    const {featuredPost,isLoading} =  useFeaturedPost();
+    if(isLoading) return <h1>Loading....</h1>
+     return(
+        featuredPost ? <FeaturedCard
             image={featuredPost.imgUrl}
             tags={featuredPost.tags}
             title={featuredPost.title}
@@ -17,9 +13,10 @@ const FeaturedPost = ()=>{
             avatar={"test"}
             author={"test"}
             date={featuredPost.date}
-        />
-    ) 
-    }
+        /> : <h1>No featured post</h1>
+     )
+        
+}
 
 
 export default FeaturedPost;

@@ -12,7 +12,7 @@ exports.signUp = async(req,res,next)=>{
         const token = jwt.sign({id: user._id,role: user.role},process.env.JWT_SECRET,{
             expiresIn: '1h'
         });
-    res.status(200).json({token: token});
+    res.status(200).json({status: "success",token: token});
     }catch(err){
         next(err);
     }
@@ -23,9 +23,9 @@ exports.login = async(req,res,next)=>{
         const user = await User.findOne({email});
         if(!user) return res.status(404).json({message: "user not found"});
         const match = await bcrypt.compare(password,user.password);
-        if(!match) return res.json(401).json({message: "password doesn't match"});
+        if(!match) return res.json(401).json({status: "fail",message: "password doesn't match"});
         const token = jwt.sign({id: user._id,role: user.role},process.env.JWT_SECRET);
-        res.json({token: token});
+        res.json({status: "success",token: token});
     }catch(err){
         next(err)
     }

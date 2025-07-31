@@ -1,12 +1,12 @@
 import Dashboard from './pages/Dashboard'
-import CreatePost from './components/CreatePost';
+import CreatePost from './pages/CreatePost';
 import {Routes,Route,Navigate,useLocation} from "react-router-dom"
 import ProtectedRoute from './utils/ProtectedRoute';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import MainLayout from './Layouts/MainLayout';
 import { Toaster } from 'sonner';
-import Mypost from './components/Mypost';
+import Mypost from './pages/Mypost';
 import Profile from './components/Profile';
 
 const App = ()=>{

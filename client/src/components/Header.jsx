@@ -12,7 +12,7 @@ import { Button } from '@mui/material';
 const Header = ()=>{
     
     return(
-        <header className="p-3 md:text-[13px] lg:text-auto md:px-50 border border-b-zinc-200  ">
+        <header className="p-3 md:text-[13px] lg:text-auto  border border-b-zinc-200  ">
             <nav className='flex justify-between items-center'>
                 <div className='flex items-center'>
                     <h1 className="text-purple-900 text-xl font-semibold p-2">DaguBlog</h1>

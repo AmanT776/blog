@@ -9,11 +9,11 @@ import {
     ,CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import API from "@/services/api";
-
+import {useAuth} from "@/context/authContext";
 const Login = ()=>{
     const [formValues,setFormValues] = useState({email: "",password: ""});
     const navigate = useNavigate();
+    const {login} = useAuth();
     const handleChange = (e)=>{
         const {name,value} = e.target;
         setFormValues((prev)=>{
@@ -25,16 +25,7 @@ const Login = ()=>{
     }
 const handleLogin = async(e)=>{
     e.preventDefault();
-    try{
-        const res = await API.post('/auth/login',formValues);
-        localStorage.setItem("token",res.data.token);
-        navigate('/dashboard');
-        console.log(res)
-    }catch(err){
-        alert(err)
-        console.log(err.response.data)
-    }
-    
+    login(formValues)
 }
     return(
         <Card className="mx-auto w-fit translate-y-1/2">

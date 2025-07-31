@@ -1,11 +1,8 @@
-import useMyPosts from "@/hooks/useMyPost";
-import PostCard from "./PostCard";
+
+
 
 const Mypost = ()=>{
-    const {posts,error,loading} = useMyPosts();
-    if(error) return <h1>{error}</h1>
-    if(loading) return <h1>loading....</h1>
-    console.log(posts)
+
     return(
         <div className="flex flex-col items-center">
             {
