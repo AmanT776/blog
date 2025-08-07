@@ -1,7 +1,6 @@
 import FeaturedCard from "./FeaturedCard";
-import { usePost } from "@/context/postContext";
 import { useFeaturedPost } from "@/hooks/useFeaturedPost";
-import { useEffect } from "react";
+
 const FeaturedPost = ()=>{
     const {featuredPost,loading,error} =  useFeaturedPost();
     if(loading) return <h1>Loading....</h1>
