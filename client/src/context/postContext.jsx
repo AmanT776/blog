@@ -5,7 +5,6 @@ const postContext = createContext();
 
 const PostProvider = ({children})=>{
     const {user} = useUser();
-    console.log(user.id)
     const getAllPost = async()=>{
         try{
             const res = await API.get('/posts/');

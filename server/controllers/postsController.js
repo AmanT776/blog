@@ -2,8 +2,9 @@ const Post = require("../models/Post");
 
 exports.getAllPosts = async(req,res)=>{
     try{
-        const posts = await Post.find();
+        const posts = await Post.find().populate("user_id");
         if(!posts) return res.status(404).json({message: "post not found"});
+        console.log(posts)
         res.status(200).json(posts);
     }catch(err){
         console.log(err);
@@ -15,7 +16,6 @@ exports.getPost = async(req,res)=>{
         const {id} = req.params;
         const post = await Post.find({user_id: id}).populate("user_id");
         if(!post) return res.status(404).json({message: "post not found"});
-        console.log(post)
         res.status(200).json(post);
     }catch(err){
         console.log(err)

@@ -3,21 +3,22 @@ import { useEffect } from "react";
 import { usePost } from "@/context/postContext";
 export const useFeaturedPost = ()=>{
     const {getAllPost} = usePost();
-    const [isLoading,setIsLoading] = useState(true);
+    const [loading,setLoading] = useState(true);
+    const [error,setError] = useState(null)
     const [featuredPost,setFeaturedPost] = useState();
     useEffect(()=>{
         async function fetchAllPosts(){
             try{
                 const res = await getAllPost();
-                setFeaturedPost(res[0]);
+                setFeaturedPost(res[0])
             }catch(e){
-                console.log(e.message)
+                setError(e)
             }finally{
-                setIsLoading(false)
+                setLoading(false)
             }
             
         }
         fetchAllPosts()
     },[]) 
-    return  {featuredPost,isLoading};
+    return  {featuredPost,loading,error};
 }

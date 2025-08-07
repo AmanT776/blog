@@ -1,18 +1,20 @@
 import FeaturedCard from "./FeaturedCard";
 import { usePost } from "@/context/postContext";
 import { useFeaturedPost } from "@/hooks/useFeaturedPost";
+import { useEffect } from "react";
 const FeaturedPost = ()=>{
-    const {featuredPost,isLoading} =  useFeaturedPost();
-    if(isLoading) return <h1>Loading....</h1>
+    const {featuredPost,loading,error} =  useFeaturedPost();
+    if(loading) return <h1>Loading....</h1>
+    console.log(featuredPost)
      return(
         featuredPost ? <FeaturedCard
             image={featuredPost.imgUrl}
             tags={featuredPost.tags}
             title={featuredPost.title}
             excerpt={featuredPost.excerpt}
-            avatar={"test"}
-            author={"test"}
-            date={featuredPost.date}
+            avatar={featuredPost.user_id.avatar}
+            author={featuredPost.user_id.name}
+            date={featuredPost.created_at.split('T')[0]}
         /> : <h1>No featured post</h1>
      )
         

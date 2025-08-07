@@ -23,8 +23,7 @@ const Mypost = ()=>{
     } ,[]) ;
     
     if(loading) return <h1>Loading ...</h1>;
-    if(posts.length === 0) return <h1>No posts to display</h1>
-    console.log(posts[0].user_id.avatar) 
+    if(posts.length === 0) return <h1>No posts to display</h1> 
     return(
         <div className="flex flex-col items-center">
             {
