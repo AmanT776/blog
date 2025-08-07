@@ -23,7 +23,9 @@ const Mypost = ()=>{
     } ,[]) ;
     
     if(loading) return <h1>Loading ...</h1>;
-    if(posts) return(
+    if(posts.length === 0) return <h1>No posts to display</h1>
+    console.log(posts[0].user_id.avatar) 
+    return(
         <div className="flex flex-col items-center">
             {
             posts.map((post,index)=>{
@@ -39,7 +41,8 @@ const Mypost = ()=>{
                 title={post.title}
                 excerpt={post.excerpt}
                 date={date}
-                author={"aman"}
+                author={post.user_id.name}
+                avatar={post.user_id.avatar}
                 />
                 )
             })
