@@ -1,9 +1,29 @@
-
-
+import { usePost } from "@/context/postContext";
+import { useState } from "react";
+import { useEffect } from "react";
+import PostCard from "@/components/PostCard";
 
 const Mypost = ()=>{
-
-    return(
+    const {fetchMyPost} = usePost();
+    const [posts,setPosts] = useState();
+    const [error,setError] = useState(null);
+    const [loading,setLoading] = useState(true);
+    useEffect(()=>{
+        async function fetchPost(){
+            try{
+                const post = await fetchMyPost();
+                setPosts(post)
+            }catch(e){
+                setError(e.message);
+            }finally{
+                setLoading(false);
+            }
+        }
+        fetchPost()
+    } ,[]) ;
+    
+    if(loading) return <h1>Loading ...</h1>;
+    if(posts) return(
         <div className="flex flex-col items-center">
             {
             posts.map((post,index)=>{
